@@ -70,37 +70,38 @@ def draw_move(board):
     choice = randrange(len(free_cells))
     board[free_cells[choice][0]][free_cells[choice][1]]='X'
 
-# board=[['E' for col in range(3)] for line in range(3)]
-# counter = 1
-# for i in range(3):
-#     for j in range(3):
-#         board[i][j] = counter
-#         counter +=1
-board = [[3*i + j + 1 for j in range(3)] for i in range(3)]
+if __name__ == "__main__":
+    # board=[['E' for col in range(3)] for line in range(3)]
+    # counter = 1
+    # for i in range(3):
+    #     for j in range(3):
+    #         board[i][j] = counter
+    #         counter +=1
+    board = [[3*i + j + 1 for j in range(3)] for i in range(3)]
 
-counter = 0
+    counter = 0
 
-victory = False
-while victory == False:
-    display_board(board)
-    if len(make_list_of_free_fields(board)) == 0:
-      print('No winner')
-      break
-
-    if counter % 2 == 0:
-        draw_move(board)
-    else:
-        enter_move(board)
-    
-    if victory_for(board,'O'):
+    victory = False
+    while victory == False:
         display_board(board)
-        victory = True
-        print('Bravo O')
-    elif victory_for(board,'X'):
-        display_board(board)
-        victory = True
-        print('Bravo X')
-    else:
-        counter += 1
-        print('tour ',counter)
-    
+        if len(make_list_of_free_fields(board)) == 0:
+          print('No winner')
+          break
+
+        if counter % 2 == 0:
+            draw_move(board)
+        else:
+            enter_move(board)
+
+        if victory_for(board,'O'):
+            display_board(board)
+            victory = True
+            print('Bravo O')
+        elif victory_for(board,'X'):
+            display_board(board)
+            victory = True
+            print('Bravo X')
+        else:
+            counter += 1
+            print('tour ',counter)
+
