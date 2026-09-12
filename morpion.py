@@ -20,6 +20,7 @@ def enter_move(board):
         try:
             choice = int(input('Choose a free cell :'))
             if choice < 1 or choice > 9:
+                print('invalid input: must be between 1 and 9')
                 continue
             row = (choice-1) // 3
             col = (choice-1) % 3 
@@ -31,7 +32,7 @@ def enter_move(board):
             else:
                 print('Cell occupied')
         except ValueError:
-            print('invalid input')
+            print('invalid input: must be a number')
 
 def make_list_of_free_fields(board):
     # The function browses the board and builds a list of all the free squares; 
